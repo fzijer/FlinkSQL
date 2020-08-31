@@ -41,5 +41,13 @@
             <version>1.11.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- 导入 KafkaStreams-->
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams</artifactId>
+            <version>0.10.2.0</version>
+        </dependency>
+
     </dependencies>
 </project>
