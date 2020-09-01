@@ -11,6 +11,9 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * 1.单词统计*/
+
 public class kafkaStreamDemo {
     public static void main(String[] args) throws Exception {
 
@@ -24,7 +27,8 @@ public class kafkaStreamDemo {
 
         /**2.构建 KStreamBuilder  和  KStream,*/
         KStreamBuilder builder = new KStreamBuilder();
-        KStream<String, String> source = builder.stream("kStream");         //设定需要消费的主题，得到KStram对象
+
+        KStream<String, String> source = builder.stream("test-kafkaStream");         //设定需要消费的主题，得到KStram对象
 
         //对value进行操作，构造一个ValueMapper, 从指定主题中获得数据进行 处理，并得到 KTabled对象
         final KTable<String, Long> counts = source.flatMapValues(new ValueMapper<String, Iterable<String>>() {
@@ -38,7 +42,7 @@ public class kafkaStreamDemo {
                 return new KeyValue<>(value, value);
             }
         }).groupByKey().count("countstore");
-        counts.print();
+        counts.print();                     //无状态算子print
 
         final KafkaStreams streams = new KafkaStreams(builder, props);      //开启KafkaStreams,传入 KStreamBuilder 和 Properties
 
