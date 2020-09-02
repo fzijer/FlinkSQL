@@ -43,11 +43,23 @@
         </dependency>
 
         <!-- 导入 KafkaStreams-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId>
             <version>0.10.2.0</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams</artifactId>
+            <version>2.6.0</version>
         </dependency>
+        <!--<dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-streams-scala</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+-->
 
     </dependencies>
 </project>

@@ -1,3 +1,4 @@
+/*
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
@@ -8,9 +9,11 @@ import org.apache.kafka.streams.processor.TopologyBuilder;
 
 import java.util.Properties;
 
+*/
 /**
  * 2.使用KafkaStream 某一主题中的数据 简单处理后写入到另一个 主题 中   (建立 拓扑TopologyBuilder 的方式)
- */
+ *//*
+
 public class KafkaStreamDemo2 {
     public static void main(String[] args) {
         //设定输入 与输出的 主题名
@@ -21,13 +24,16 @@ public class KafkaStreamDemo2 {
         Properties setting = new Properties();
         setting.put(StreamsConfig.APPLICATION_ID_CONFIG, "topicTotopic");     //流处理标识，对应一个应用需要保持一致，用作消费的group.id
         setting.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "jiaxun:9092");   //指定要连接的kafka客户端
-      /*  setting.put(StreamsConfig.KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName()); //序列化与反序列化
-        setting.put(StreamsConfig.VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());*/
+      */
+/*  setting.put(StreamsConfig.KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName()); //序列化与反序列化
+        setting.put(StreamsConfig.VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());*//*
+
 
         StreamsConfig properties = new StreamsConfig(setting);
 
         //构建拓扑TopologyBuilder  来执行 一系列的执行计划
         TopologyBuilder builder = new TopologyBuilder();
+
         builder.addSource("source1", sourcetopic);   //加入数据源 主题为 sourcetopic    name 参数 用来唯一标识 该数据源
         builder.addProcessor("processor1", new ProcessorSupplier<byte[], byte[]>() {
             @Override
@@ -80,3 +86,4 @@ class LogProcessor implements Processor<byte[], byte[]> {
 
     }
 }
+*/
